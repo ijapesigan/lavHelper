@@ -1,0 +1,96 @@
+---
+title: "lavHelper: Helper Functions for lavaan Models"
+author: "Ivan Jacob Agaloos Pesigan"
+output: rmarkdown::html_vignette
+bibliography: "vignettes.bib"
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
+nocite: |
+  @RCoreTeam-2026
+vignette: >
+  %\VignetteIndexEntry{lavHelper: Helper Functions for lavaan Models}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+#| include = FALSE
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Description
+
+Helper functions for `lavaan` models [@RCoreTeam-2026]:
+conversion between `lavaan` model matrices and
+reticular action model (RAM) matrices,
+the standardized solution from RAM matrices,
+and the parameter estimates of a fitted model
+including fixed parameters, defined parameters, and constraints.
+
+## Installation
+
+You can install the development version of `lavHelper` from
+[GitHub](https://github.com/ijapesigan/lavHelper) with:
+
+```r
+if (!require("pak")) install.packages("pak")
+pak::pkg_install("ijapesigan/lavHelper")
+```
+
+## Example
+
+```{r}
+library(package = "lavHelper")
+```
+
+A regression of `mpg` on `wt` and `disp` fitted with `lavaan`.
+
+```{r}
+fit <- lavaan::sem(
+  model = "mpg ~ b1 * wt + b2 * disp",
+  data = mtcars
+)
+lav_mod <- lavaan::lavInspect(
+  object = fit,
+  what = "est"
+)
+```
+
+`Lav2RAM()` converts the `lavaan` model matrices to RAM matrices.
+
+```{r}
+ram <- Lav2RAM(
+  lav_mod = lav_mod
+)
+ram$A
+```
+
+`StdRAM()` gives the standardized solution.
+
+```{r}
+StdRAM(
+  ram_est = ram
+)$A
+```
+
+`RAM2Lav()` converts RAM matrices back to `lavaan` model matrices.
+
+```{r}
+RAM2Lav(
+  ram = ram,
+  lav_mod = lav_mod
+)$beta
+```
+
+`ThetaHat()` extracts the parameter estimates,
+including the fixed parameters.
+
+```{r}
+ThetaHat(
+  object = fit
+)$est
+```
+
+## References

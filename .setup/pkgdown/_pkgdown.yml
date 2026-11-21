@@ -1,0 +1,13 @@
+destination: pkgdown
+url: https://ijapesigan.github.io/lavHelper/
+
+template:
+  package: rProject
+
+articles:
+- title: Getting Started
+  contents:
+  - lavHelper
+- title: Session Information
+  contents:
+  - session

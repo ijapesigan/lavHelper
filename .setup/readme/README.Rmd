@@ -1,0 +1,51 @@
+---
+title: "lavHelper"
+author: "Ivan Jacob Agaloos Pesigan"
+output: rmarkdown::html_vignette
+bibliography: "vignettes.bib"
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
+nocite: |
+  @RCoreTeam-2026
+---
+
+<!-- README.md is generated from .setup/readme/README.Rmd. Please edit that file -->
+
+```{r}
+#| include = FALSE
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/vignettes-",
+  out.width = "100%"
+)
+```
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+## Description
+
+Helper functions for `lavaan` models in R [@RCoreTeam-2026]:
+conversion between `lavaan` model matrices and
+reticular action model (RAM) matrices,
+the standardized solution from RAM matrices,
+and the parameter estimates of a fitted model
+including fixed parameters, defined parameters, and constraints.
+
+## Installation
+
+You can install the development version of `lavHelper` from
+[GitHub](https://github.com/ijapesigan/lavHelper) with:
+
+```r
+if (!require("pak")) install.packages("pak")
+pak::pkg_install("ijapesigan/lavHelper")
+```
+
+## More Information
+
+See
+[GitHub Pages](https://ijapesigan.github.io/lavHelper)
+for package documentation.
+
+## References
