@@ -1,0 +1,32 @@
+Package: lavHelper
+Title: Helper Functions for lavaan Models
+Version: 0.0.2
+Authors@R: 
+    person(given = "Ivan Jacob Agaloos",
+           family = "Pesigan",
+           role = c("aut", "cre", "cph"),
+           email = "r.jeksterslab@gmail.com",
+           comment = c(ORCID = "0000-0003-4818-8420"))
+Description: Helper functions for 'lavaan' models.
+    The functions convert between 'lavaan' model matrices
+    and reticular action model (RAM) matrices,
+    compute the standardized solution from RAM matrices,
+    and extract the parameter estimates of a fitted model
+    including fixed parameters, defined parameters,
+    and equality and inequality constraints.
+URL: https://github.com/ijapesigan/lavHelper,
+        https://ijapesigan.github.io/lavHelper/
+BugReports: https://github.com/ijapesigan/lavHelper/issues
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Depends: R (>= 3.5.0)
+Imports: lavaan, stats, utils
+Suggests: knitr, rmarkdown, testthat
+VignetteBuilder: knitr
+Config/roxygen2/version: 8.1.1.9000
+NeedsCompilation: no
+Packaged: 2026-11-21 04:34:38 UTC; root
+Author: Ivan Jacob Agaloos Pesigan [aut, cre, cph] (ORCID:
+    <https://orcid.org/0000-0003-4818-8420>)
+Maintainer: Ivan Jacob Agaloos Pesigan <r.jeksterslab@gmail.com>
